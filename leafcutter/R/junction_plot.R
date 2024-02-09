@@ -82,7 +82,7 @@ make_differential_splicing_plot=function(y, x=numeric(nrow(y))+1, exons_table=NU
     if (is.na(main_title) | !first_plot) new_theme_empty$plot.title <- element_blank()
     first_plot=F
     
-    g=ggplot(allEdges) + geom_path(aes(x = x, y = y, group = Group, colour=log10counts, size = Sequence, alpha=.9)) + scale_size(breaks=breaks, labels=format(10^breaks,digits=0), limits=limits, range = c(.3, 10), guide = guide_legend(title = legend_title)) + scale_alpha(guide="none",range = c(0.1, 1)) + new_theme_empty + scale_color_gradient(breaks=breaks, limits=limits, labels=format(10^breaks,digits=0),low="blue",high="red", guide = guide_legend(title = legend_title)) + ylab(paste0(tis," (n=",group_sample_size,")")) + xlab("") + xlim(my_xlim) + geom_hline(yintercept=0,alpha=.3) #  + scale_color_discrete(guide="none")
+    g=ggplot(allEdges) + geom_path(aes(x = x, y = y, group = Group, colour=log10counts, size = Sequence, alpha=.9)) + scale_size(breaks=breaks, labels=format(10^breaks,digits=1), limits=limits, range = c(.3, 10), guide = guide_legend(title = legend_title)) + scale_alpha(guide="none",range = c(0.1, 1)) + new_theme_empty + scale_color_gradient(breaks=breaks, limits=limits, labels=format(10^breaks,digits=1),low="blue",high="red", guide = guide_legend(title = legend_title)) + ylab(paste0(tis," (n=",group_sample_size,")")) + xlab("") + xlim(my_xlim) + geom_hline(yintercept=0,alpha=.3) #  + scale_color_discrete(guide="none")
     if (!is.na(snp_coord)) {
         df=data.frame(x=snp_coord,xend=snp_coord,y=0,yend=max_height*1.1)
         print(df)
