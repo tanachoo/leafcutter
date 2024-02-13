@@ -37,7 +37,7 @@ make_cluster_plot <- function(
 
 
   junction_colour <- "royalblue2"
-  cryptic_colour <- "khaki4"
+  cryptic_colour <- "khaki3"
 
   # convert colnames(y) into intron meta data
   intron_meta=get_intron_meta(colnames(y))
